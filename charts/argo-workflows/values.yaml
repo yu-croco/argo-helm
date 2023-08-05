@@ -711,6 +711,7 @@ artifactRepository:
   archiveLogs: false
   # -- Store artifact in a S3-compliant object store
   # @default -- See [values.yaml]
+  ## Ref: https://argoproj.github.io/argo-workflows/fields/#s3artifactrepository
   s3: {}
     # # Note the `key` attribute is not the actual secret, it's the PATH to
     # # the contents in the associated secret, as defined by the `name` attribute.
@@ -731,6 +732,7 @@ artifactRepository:
     #    enableEncryption: true
   # -- Store artifact in a GCS object store
   # @default -- `{}` (See [values.yaml])
+  ## Ref: https://argoproj.github.io/argo-workflows/fields/#gcsartifactrepository
   gcs: {}
   # bucket: <project>-argo
   # keyFormat: "{{ \"{{workflow.namespace}}/{{workflow.name}}/{{pod.name}}\" }}"
@@ -747,10 +749,11 @@ artifactRepository:
   # key: serviceAccountKey
   # -- Store artifact in Azure Blob Storage
   # @default -- `{}` (See [values.yaml])
+  ## Ref: https://argoproj.github.io/argo-workflows/fields/#azureartifactrepository
   azure: {}
   # endpoint: https://mystorageaccountname.blob.core.windows.net
   # container: my-container-name
-  # blob: path/in/container
+  # blobNameFormat: path/in/container
   ## accountKeySecret is a secret selector.
   ## It references the k8s secret named 'my-azure-storage-credentials'.
   ## This secret is expected to have have the key 'account-access-key',
